@@ -1,0 +1,6 @@
+{
+  "integrationFolder": "cypress/tests",
+  "baseUrl": "https://eiendom.no/",
+  "viewportHeight": 1000,
+  "viewportWidth": 1280
+}

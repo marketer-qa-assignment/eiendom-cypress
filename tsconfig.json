@@ -1,0 +1,16 @@
+{
+  "include": [
+    "./**/*.ts"
+  ],
+  "compilerOptions": {
+    "target": "es5",
+    "types": [
+      "cypress",
+      "@percy/cypress"
+    ],
+    "lib": [
+      "es5",
+      "dom"
+    ]
+  }
+}
