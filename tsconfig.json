@@ -3,6 +3,7 @@
     "./**/*.ts"
   ],
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "types": [
       "cypress",
