@@ -3,7 +3,6 @@ type SearchEntityTestCtx = {
 };
 
 describe("Search entity", function () {
-    const ctx: SearchEntityTestCtx = {};
 
     beforeEach(function () {
         cy.visit("https://eiendom.no/")
@@ -45,13 +44,14 @@ describe("Search entity", function () {
         cy.get("#my-profile").click()
         cy.getBySel("favourites-profile-link").click()
 
-        cy.get(".property-card-info .property-title").should("contain", entity.name)
-        cy.get(".property-card-info .property-description").should("contain", entity.subtitle)
+        cy.get("[data-testid=property-card-link][href*=" + entity.url.split("/").pop() + "]").within(() => {
+            cy.get(".property-card-info .property-title").should("contain", entity.name)
+            cy.get(".property-card-info .property-description").should("contain", entity.subtitle)
+            cy.get(".property-card").click()
+        })
 
-        cy.get(".property-card-info").click()
         cy.getBySel("project-favourite-button").should("have.class", "favourited")
         cy.get(".listing-info-header h1").should("contain", entity.name)
-
         cy.get(".listing-info-header .listing-info-subtitle").should("contain", entity.subtitle)
         cy.url().should("eq", entity.url)
     });
